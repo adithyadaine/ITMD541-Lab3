@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator with Currency Conversion</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="calculator-card">
+                    
+                    <div class="card-header text-center py-3">
+                        <h6 class="mb-0">ITMD 541 - Lab 3 - Adithya D M</h6><br>
+                        <h3 class="mb-0">
+                            <i class="bi bi-calculator me-2"></i>
+                            Tip Calculator
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="tipForm">
+
+                            <!-- Currency Selection -->
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label for="inputCurrency" class="form-label">
+                                        <i class="bi bi-currency-exchange me-1 currency-icon"></i>
+                                        Input Currency
+                                    </label>
+
+                                    <select class="form-select" id="inputCurrency">
+                                        <option value="USD">US Dollar (USD)</option>
+                                        <option value="EUR">Euro (EUR)</option>
+                                        <option value="GBP">British Pound (GBP)</option>
+                                        <option value="JPY">Japanese Yen (JPY)</option>
+                                        <option value="INR">Indian Rupee (INR)</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="outputCurrency" class="form-label">
+                                        <i class="bi bi-display me-1 currency-icon"></i>
+                                        Display Currency
+                                    </label>
+                                    <select class="form-select" id="outputCurrency">
+                                        <option value="USD">US Dollar (USD)</option>
+                                        <option value="EUR">Euro (EUR)</option>
+                                        <option value="GBP">British Pound (GBP)</option>
+                                        <option value="JPY">Japanese Yen (JPY)</option>
+                                        <option value="INR">Indian Rupee (INR)</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+
+                            <!-- Bill Amount -->
+                            <div class="mb-4">
+                                <label for="billTotal" class="form-label">
+                                    <i class="bi bi-receipt me-1 currency-icon"></i>
+                                    Bill Total
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="currencySymbol">$</span>
+                                    <input type="text" class="form-control" id="billTotal" placeholder="Enter bill amount">
+                                </div>
+                                <div id="billError" class="error-message">Please enter a valid positive number</div>
+                            </div>
+
+                            <!-- Tip Slider -->
+                            <div class="mb-4">
+                                <label for="tipSlider" class="form-label">
+                                    <i class="bi bi-sliders me-1 currency-icon"></i>
+                                    Tip Percentage
+                                </label>
+                                <input type="range" class="form-range" id="tipSlider" min="0" max="100" value="15">
+                                <div class="text-center" id="tipDisplay">15%</div>
+                            </div>
+
+                            <!-- Results Section -->
+                            <div class="result-box">
+                                <div class="mb-3">
+                                    <label class="form-label">
+                                        <i class="bi bi-piggy-bank me-1 currency-icon"></i>
+                                        Tip Amount
+                                    </label>
+                                    <input type="text" class="form-control" id="tipAmount" disabled>
+                                </div>
+                                <div>
+                                    <label class="form-label">
+                                        <i class="bi bi-cash-stack me-1 currency-icon"></i>
+                                        Total Bill with Tip
+                                    </label>
+                                    <input type="text" class="form-control" id="totalWithTip" disabled>
+                                </div>
+
+                                <div class="exchange-rate">
+                                    <div class="exchange-rate-header">Exchange Rate</div>
+                                    <div class="exchange-rate-content">
+                                        <div class="currency-pair">
+                                            <span class="from-currency" id="fromCurrencyDisplay">USD</span>
+                                            <span class="exchange-arrow">→</span>
+                                            <span class="to-currency" id="toCurrencyDisplay">EUR</span>
+                                        </div>
+                                        <div id="exchangeRateDisplay" class="rate-value"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
